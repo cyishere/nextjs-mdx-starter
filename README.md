@@ -15,6 +15,16 @@ Key features and technologies:
 
 ## Changelog
 
+Feb 2026:
+
+Upgrade to Next.js 16.
+
+- Bump `next` and `eslint-config-next` to 16.1.6
+- Replace `FlatCompat` with native flat config imports in `eslint.config.mjs`
+- Update lint script to use eslint directly (next lint removed in v16)
+- Update tsconfig: jsx preserve -> react-jsx, add .next/dev/types include
+- Update `package.json` to configure `sharp`/`unrs-resolver` build scripts
+
 May 2025:
 
 - For better practise: use Prettier only for formatting and use ESLint for sorting imports.
