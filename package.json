@@ -22,6 +22,10 @@
     "rehype-unwrap-images": "^1.0.0",
     "rss": "^1.2.2"
   },
+  "pnpm": {
+    "onlyBuiltDependencies": ["sharp"],
+    "ignoredBuiltDependencies": ["unrs-resolver"]
+  },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
     "@types/js-cookie": "^3.0.6",
