@@ -14,17 +14,19 @@ In the latest version, all styling has been consolidated into a single file: `sr
 
 Because this is a starter template, this approach makes it incredibly easy to adopt your preferred styling solution—simply delete the `globals.css` file and start fresh!
 
-> **Note:** The dark/light theme switching implementation and file handling utilities were adapted from [The Joy of React](https://github.com/joy-of-react/project-blog) course exercise.
+---
 
-> ❗ **Note for Next.js < 16:** Prior to Next.js 16, the following configuration was required in `next.config.ts` to ensure Vercel's serverless environment could locate the `content` folder:
->
-> ```ts
-> const nextConfig: NextConfig = {
->   outputFileTracingIncludes: {
->     '/*': ['./content/**/*']
->   }
-> };
-> ```
+**Note:** The dark/light theme switching implementation and file handling utilities were adapted from [The Joy of React](https://github.com/joy-of-react/project-blog) course exercise.
+
+❗ **Note for Next.js < 16:** Prior to Next.js 16, the following configuration was required in `next.config.ts` to ensure Vercel's serverless environment could locate the `content` folder:
+
+```ts
+const nextConfig: NextConfig = {
+  outputFileTracingIncludes: {
+    '/*': ['./content/**/*']
+  }
+};
+```
 
 ## Changelog
 
