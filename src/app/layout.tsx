@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
 
-import { Poppins } from 'next/font/google';
+import { Geist_Mono, Poppins } from 'next/font/google';
 
-import '@/styles/index.css';
+import './globals.css';
 
 import { getTheme } from '@/actions/theme';
 import Footer from '@/components/Footer';
@@ -11,7 +11,12 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '@/utils/constants';
 
 const poppins = Poppins({
   weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
-  variable: '--font-poppins',
+  variable: '--ff-primary',
+  subsets: ['latin']
+});
+
+const geistMono = Geist_Mono({
+  variable: '--ff-mono',
   subsets: ['latin']
 });
 
@@ -29,7 +34,7 @@ export default async function RootLayout({
 
   return (
     <html lang="en" className={theme === 'light' ? '' : theme}>
-      <body className={`${poppins.variable}`}>
+      <body className={`${poppins.variable} ${geistMono.variable}`}>
         <Header />
         <main>{children}</main>
         <Footer />

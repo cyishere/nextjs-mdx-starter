@@ -7,8 +7,6 @@ import CustomMDXRemote from '@/components/CustomMDXRemote';
 import { getBlogPostBySlug } from '@/utils/file-helpers';
 import { getFormattedDate } from '@/utils/format';
 
-import styles from './Page.module.css';
-
 type BlogPostProps = {
   params: Promise<{
     slug: string;
@@ -45,10 +43,10 @@ const BlogPost = async ({ params }: BlogPostProps) => {
   );
 
   return (
-    <article className="region">
-      <header className={`container flow ${styles.header}`}>
+    <div>
+      <header>
         <h1>{title}</h1>
-        <p className="text-light text-sm text-italic">
+        <p>
           {updatedAt ? (
             <>
               Published on {PublishedAt}, last updated on{' '}
@@ -61,10 +59,8 @@ const BlogPost = async ({ params }: BlogPostProps) => {
           )}
         </p>
       </header>
-      <div className={`container region flow ${styles.content} article`}>
-        {content && <CustomMDXRemote content={content} />}
-      </div>
-    </article>
+      <article>{content && <CustomMDXRemote content={content} />}</article>
+    </div>
   );
 };
 

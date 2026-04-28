@@ -12,13 +12,11 @@ const PostCard: React.FC<PostCardProps> = ({ post }) => {
   const { title, createdAt, description, slug } = post;
 
   return (
-    <article className="region flow">
+    <article>
       <h3>
         <Link href={`/blog/${slug}`}>{title}</Link>
       </h3>
-      <time className="text-light text-sm" dateTime={createdAt.toString()}>
-        {getFormattedDate(createdAt)}
-      </time>
+      <time dateTime={createdAt.toString()}>{getFormattedDate(createdAt)}</time>
       {description && <p>{description}</p>}
     </article>
   );

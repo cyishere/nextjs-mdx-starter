@@ -30,15 +30,15 @@ const About = async () => {
   const { frontmatter, content } = pageInfo;
 
   return (
-    <article className="container region">
+    <div>
       <header>
         <h1>{frontmatter.title}</h1>
       </header>
 
-      <div className="region flow">
+      <article>
         <CustomMDXRemote content={content} />
-      </div>
-    </article>
+      </article>
+    </div>
   );
 };
 

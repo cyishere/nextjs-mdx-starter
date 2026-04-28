@@ -6,10 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint src",
-    "format": "prettier --write .",
-    "format:check": "prettier --check .",
-    "format:all": "eslint src --ext .ts,.tsx --fix && prettier --write ."
+    "lint": "eslint",
+    "lint:fix": "eslint --fix",
+    "format": "prettier --write --experimental-cli ."
   },
   "dependencies": {
     "bright": "^1.0.0",
@@ -23,8 +22,12 @@
     "rss": "^1.2.2"
   },
   "pnpm": {
-    "onlyBuiltDependencies": ["sharp"],
-    "ignoredBuiltDependencies": ["unrs-resolver"]
+    "onlyBuiltDependencies": [
+      "sharp"
+    ],
+    "ignoredBuiltDependencies": [
+      "unrs-resolver"
+    ]
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",

@@ -15,7 +15,6 @@ const RssIcon: React.FC<RssIconProps> = ({ width = '24', height = '24' }) => {
       strokeWidth={2}
       strokeLinecap="round"
       strokeLinejoin="round"
-      className="feather feather-rss"
     >
       <path d="M4 11a9 9 0 0 1 9 9"></path>
       <path d="M4 4a16 16 0 0 1 16 16"></path>
