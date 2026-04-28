@@ -1,5 +1,4 @@
-import Hero from '@/components/Hero';
-import Info from '@/components/Info';
+import CustomMDXRemote from '@/components/CustomMDXRemote';
 import PostCard from '@/components/PostCard';
 import { CONTENT_ROOT } from '@/utils/constants';
 import { getBlogPostList, getSingleFile } from '@/utils/file-helpers';
@@ -13,13 +12,16 @@ const Home = async () => {
 
   return (
     <>
-      <Hero
-        title={heroContent?.frontmatter?.title}
-        content={heroContent?.content}
-      />
-      <div className="container region flow">
-        <Info content={statementContent?.content} />
-        <h2>Latest Posts</h2>
+      <section>
+        <h1>{heroContent?.frontmatter.title}</h1>
+        <CustomMDXRemote content={heroContent?.content || ''} />
+      </section>
+
+      <aside>
+        <CustomMDXRemote content={statementContent?.content || ''} />
+      </aside>
+
+      <div>
         {posts.map((post) => (
           <PostCard key={post.slug} post={post} />
         ))}

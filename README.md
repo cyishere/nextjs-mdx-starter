@@ -1,37 +1,57 @@
-# A Next.js + MDX Starter
+# Next.js + MDX Starter
 
 This starter project demonstrates the integration of MDX with Next.js, drawing inspiration from the elegant [Hylia Starter Kit](https://hylia.website/) for Eleventy.
 
-Key features and technologies:
+## Key Features & Technologies
 
-- [next-mdx-remote](https://github.com/hashicorp/next-mdx-remote) for MDX processing and rendering
-- A CSS architecture combining vanilla CSS and CSS Modules, following the [CUBE CSS](https://cube.fyi/) methodology (Learn more about this approach in this detailed [blog post](https://piccalil.li/blog/cube-css/))
+- **MDX Processing:** Uses [next-mdx-remote](https://github.com/hashicorp/next-mdx-remote) and [gray-matter](https://github.com/jonschlinkert/gray-matter) for parsing and rendering MDX content.
+- **Image Optimization:** Includes the [rehype-unwrap-images](https://github.com/rehypejs/rehype-unwrap-images) plugin to remove unnecessary wrapping paragraph (`<p>`) tags around images (`<img>`).
+- **Syntax Highlighting:** Features [Bright](https://bright.codehike.org/) for beautiful code syntax highlighting, fully optimized for React Server Components.
 
-  _With this setup for a starter also means it's easier to switch to other prefered styling solution._
+## Styling
 
-- [Bright](https://bright.codehike.org/) for beautiful code syntax highlighting, optimized for React Server Components
+In the latest version, all styling has been consolidated into a single file: `src/app/globals.css`. These styles are applied directly to semantic HTML elements without relying on utility classes.
 
-**NOTE:** The dark/light theme switching implementation and file handling utilities were adapted from [the Joy of React course exercise](https://github.com/joy-of-react/project-blog).
+Because this is a starter template, this approach makes it incredibly easy to adopt your preferred styling solution—simply delete the `globals.css` file and start fresh!
+
+> **Note:** The dark/light theme switching implementation and file handling utilities were adapted from [The Joy of React](https://github.com/joy-of-react/project-blog) course exercise.
+
+> ❗ **Note for Next.js < 16:** Prior to Next.js 16, the following configuration was required in `next.config.ts` to ensure Vercel's serverless environment could locate the `content` folder:
+>
+> ```ts
+> const nextConfig: NextConfig = {
+>   outputFileTracingIncludes: {
+>     '/*': ['./content/**/*']
+>   }
+> };
+> ```
 
 ## Changelog
 
-Feb 2026:
+### April 2026
 
-Upgrade to Next.js 16.
+- **Styling Refactor:** Consolidated all styles into a single `src/app/globals.css` file, removing CSS modules and multiple CSS files for a more streamlined approach.
+- **Component Simplification:** Flattened the component directory structure by removing components like `Hero` and `Info`, retaining only those intended for reuse.
+- **MDX Component Mapping:** Moved the MDX `COMPONENTS_MAP` directly into `CustomMDXRemote.tsx` and removed the separate `mdx-components.tsx` file.
+- **Scripts Update:** Updated the `format` script in `package.json` to utilize Prettier's `--experimental-cli`.
 
-- Bump `next` and `eslint-config-next` to 16.1.6
-- Replace `FlatCompat` with native flat config imports in `eslint.config.mjs`
-- Update lint script to use eslint directly (next lint removed in v16)
-- Update tsconfig: jsx preserve -> react-jsx, add .next/dev/types include
-- Update `package.json` to configure `sharp`/`unrs-resolver` build scripts
+### February 2026
 
-May 2025:
+**Upgraded to Next.js 16**
 
-- For better practise: use Prettier only for formatting and use ESLint for sorting imports.
-- Update `next.config.ts` to ensure the `content/` folder is accessible to Vercel's serverless functions after deployment
+- Bumped `next` and `eslint-config-next` to version `16.1.6` and `6.0.0`.
+- Replaced `FlatCompat` with native flat config imports in `eslint.config.mjs`.
+- Updated the lint script to use `eslint` directly (`next lint` was removed in v16).
+- Updated `tsconfig.json`: changed `jsx` from `preserve` to `react-jsx`, and added `.next/dev/types` to the `include` array.
+- Updated `package.json` to configure `sharp` and `unrs-resolver` build scripts.
 
-April 2025:
+### May 2025
 
-- Updated Next.js to version 15.3.1
-- Migrated from styled-components to a pure CSS/CSS Modules approach
-- Migrated to TypeScript
+- **Tooling Best Practices:** Configured Prettier to handle formatting exclusively, while delegating import sorting to ESLint.
+- Updated `next.config.ts` to ensure the `content/` folder is accessible to Vercel's serverless functions after deployment.
+
+### April 2025
+
+- Updated Next.js to version `15.3.1`.
+- Migrated from `styled-components` to a pure CSS/CSS Modules approach.
+- Migrated the codebase to TypeScript.

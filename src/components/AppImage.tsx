@@ -8,10 +8,7 @@ export type AppImageProps = ImageProps & {
 
 const AppImage: React.FC<AppImageProps> = (props) => {
   return (
-    <figure
-      className="flow"
-      style={{ '--flow-space': '0.5em' } as React.CSSProperties}
-    >
+    <figure>
       <Image
         {...props}
         width={0}
@@ -27,11 +24,7 @@ const AppImage: React.FC<AppImageProps> = (props) => {
           objectPosition: '50% 50%'
         }}
       />
-      {props.title && (
-        <figcaption className="text-sm text-light text-italic">
-          {props.title}
-        </figcaption>
-      )}
+      {props.title && <figcaption>{props.title}</figcaption>}
     </figure>
   );
 };

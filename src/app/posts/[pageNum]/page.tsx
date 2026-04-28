@@ -7,8 +7,6 @@ import PostCard from '@/components/PostCard';
 import { SITE_TITLE } from '@/utils/constants';
 import { getBlogPostsByPage } from '@/utils/file-helpers';
 
-import styles from './Page.module.css';
-
 const PAGE_TITLE = 'Blog Posts';
 
 export const metadata: Metadata = {
@@ -31,16 +29,16 @@ const BlogPostsList = async ({ params }: BlogPostsListProps) => {
   }
 
   return (
-    <div className="container region">
+    <div>
       <h1>{PAGE_TITLE}</h1>
       <div>
         {posts.map((post) => (
           <PostCard key={post.slug} post={post} />
         ))}
       </div>
-      <div className={styles.navigation}>
+      <footer>
         {page === 1 ? (
-          <span className="text-light">Prev</span>
+          <span>Prev</span>
         ) : (
           <Link href={`/posts/${page - 1}`}>Prev</Link>
         )}
@@ -52,7 +50,7 @@ const BlogPostsList = async ({ params }: BlogPostsListProps) => {
         ) : (
           <Link href={`/posts/${page + 1}`}>Next</Link>
         )}
-      </div>
+      </footer>
     </div>
   );
 };

@@ -35,7 +35,7 @@ const ThemeSwitcher: React.FC<ThemeSwitcherProps> = ({ initialTheme }) => {
   return (
     <button onClick={handleClick}>
       {theme === 'light' ? <Moon /> : <Sun />}
-      <span className="visually-hidden">Toggle dark / light theme</span>
+      <span hidden>Toggle dark / light theme</span>
     </button>
   );
 };
